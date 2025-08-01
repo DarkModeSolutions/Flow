@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import TransitionHeader from "@/components/TransitionHeader";
 import Footer from "@/components/Footer";
+import TransitionLayout from "@/components/TransitionLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,13 @@ export default function RootLayout({
           `}
       >
         <div className="w-full p-4">
-          <Header />
+          <TransitionHeader />
         </div>
-        <div className="w-full flex-1 p-4">{children}</div>
+        <div className="w-full flex-1 p-4">
+          <div className="max-w-4xl mx-auto">
+            <TransitionLayout>{children}</TransitionLayout>
+          </div>
+        </div>
         <div className="w-full p-4 bg-gray-800">
           <Footer />
         </div>
