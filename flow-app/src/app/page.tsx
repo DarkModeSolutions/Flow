@@ -17,7 +17,7 @@ import EnergyDrinkImg2 from "@/assets/images/EnergyDrinkImg2.png";
 import EnergyDrinkImg3 from "@/assets/images/EnergyDrinkImg3.png";
 import Image from "next/image";
 
-export function CarouselPlugin() {
+export default function Home() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
@@ -41,38 +41,40 @@ export function CarouselPlugin() {
   ];
 
   return (
-    <Carousel
-      plugins={[plugin.current]}
-      className="w-full max-w-xs"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
-      <CarouselContent>
-        {cardContents.map((cardContent, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="aspect-square items-center justify-center p-6">
-                  <Image src={cardContent.image} alt={cardContent.title} />
-                  <h2 className="text-lg font-semibold mt-4">
-                    {cardContent.title}
-                  </h2>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  );
-}
-
-export default function Home() {
-  return (
     <div className="flex justify-center items-center p-8">
-      <CarouselPlugin />
+      <Carousel
+        plugins={[plugin.current]}
+        className="w-full max-w-xs"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
+      >
+        <CarouselContent>
+          {cardContents.map((cardContent, index) => (
+            <CarouselItem key={index}>
+              <div className="p-1">
+                <Card>
+                  <CardContent className="aspect-square items-center justify-center p-6">
+                    <Image src={cardContent.image} alt={cardContent.title} />
+                    <h2 className="text-lg font-semibold mt-4">
+                      {cardContent.title}
+                    </h2>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 }
+
+// export default function Home() {
+//   return (
+//     <div >
+//       <CarouselPlugin />
+//     </div>
+//   );
+// }
