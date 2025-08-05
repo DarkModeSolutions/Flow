@@ -41,7 +41,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex justify-center items-center p-8">
+    <div className="flex justify-center items-center p-8 w-full">
       <Carousel
         plugins={[plugin.current]}
         className="w-full max-w-xs"
