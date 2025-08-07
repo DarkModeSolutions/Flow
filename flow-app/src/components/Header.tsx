@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div>
       <header className="w-full">
-        <h1 className="text-xl font-bold text-center">Flow App</h1>
+        <h1 className="text-xl font-bold text-center">Flow Hydration</h1>
         <nav className="mt-4 w-full">
           <ul className="w-full flex space-x-4 justify-around">
             <li>
